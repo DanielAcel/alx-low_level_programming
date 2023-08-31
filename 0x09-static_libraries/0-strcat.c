@@ -1,6 +1,3 @@
-0-strcat.c
-
-
 #include "main.h"
  /**
  * _strcat - concatenates two strings
