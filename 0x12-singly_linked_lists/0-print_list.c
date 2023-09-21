@@ -1,25 +1,26 @@
-#include "variadic_functions.h"
-#include <stdarg.h>
+#include <stdio.h>
+#include "lists.h"
 
 /**
- * sum_them_all - Returns the sum of all its paramters.
- * @n: The number of paramters passed to the function.
- * @...: A variable number of paramters to calculate the sum of.
+ * print_list - prints all the elements of a linked list
+ * @h: pointer to the list_t list to print
  *
- * Return: If n == 0 - 0.
- *         Otherwise - the sum of all parameters.
+ * Return: the number of nodes printed
  */
-int sum_them_all(const unsigned int n, ...)
+size_t print_list(const list_t *h)
 {
-	va_list ap;
-	unsigned int i, sum = 0;
+	size_t s = 0;
 
-	va_start(ap, n);
+	while (h)
+	{
+		if (!h->str)
+			printf("[0] (nil)\n");
+		else
+			printf("[%u] %s\n", h->len, h->str);
+		h = h->next;
+		s++;
+	}
 
-	for (i = 0; i < n; i++)
-		sum += va_arg(ap, int);
-
-	va_end(ap);
-
-	return (sum);
+	return (s);
 }
+
