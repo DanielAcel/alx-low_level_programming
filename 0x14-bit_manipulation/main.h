@@ -12,3 +12,4 @@ int _putchar(char c);
 int get_endianness(void);
 
 #endif
+
